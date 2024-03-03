@@ -3,13 +3,12 @@ import {
   View,
   TextInput,
   TouchableOpacity,
-  ScrollView,
   FlatList,
   Alert,
 } from 'react-native';
 
 import { styles } from './styles';
-import { Participant } from '../../components/Participant';
+import { Participant } from '@components/Participant';
 
 import React, { useState } from 'react';
 
@@ -47,13 +46,15 @@ export const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.eventName}>Nome do evento </Text>
-      <Text style={styles.eventDate}>Terça-feira, 27 de fevereiro de 2024</Text>
+      <Text style={styles.eventName}>Aniversário do Warley Coutinho.</Text>
+      <Text style={styles.eventDate}>
+        Quarta-feira, 10 de Abril de 2024 Dia da Engenharia.
+      </Text>
 
       <View style={styles.form}>
         <TextInput
           style={styles.input}
-          placeholder={'Nome do participante'}
+          placeholder={'Nome do convidado'}
           placeholderTextColor={'#6B6B6B'}
           keyboardType={'default'}
           value={participantName}
@@ -63,16 +64,6 @@ export const Home = () => {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
-
-      {/* <ScrollView showsVerticalScrollIndicator={false}>
-        {participants.map((participant) => (
-          <Participant
-            key={participant}
-            name={participant}
-            onRemove={() => handleParticipantRemove(name)}
-          />
-        ))}
-      </ScrollView> */}
 
       <FlatList
         data={participants}
@@ -87,8 +78,7 @@ export const Home = () => {
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
           <Text style={styles.listEmptyText}>
-            Ninquém chegou no evento ainda? Adicione participantes a sua lista
-            de presençã.
+            Ninquém chegou ainda? Adicione convidados a sua lista.
           </Text>
         }
       />
